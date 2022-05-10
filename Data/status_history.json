@@ -1,0 +1,341 @@
+{
+  "history": [
+    {
+      "insertion_id": 0,
+      "status": "OPEN",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 10,
+        "minutes": 56,
+        "seconds": 3
+      }
+    },
+    {
+      "insertion_id": 0,
+      "status": "OPEN",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 10,
+        "minutes": 59,
+        "seconds": 12
+      }
+    },
+    {
+      "insertion_id": 4294967298,
+      "status_old": "OPEN",
+      "status": "RETIRED",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 8,
+        "seconds": 36
+      }
+    },
+    {
+      "insertion_id": 0,
+      "status": "OPEN",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 10,
+        "seconds": 47
+      }
+    },
+    {
+      "insertion_id": 0,
+      "status": "OPEN",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 12,
+        "seconds": 36
+      }
+    },
+    {
+      "insertion_id": 4294967299,
+      "status_old": "OPEN",
+      "status": "MATCHED",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 16,
+        "seconds": 41
+      }
+    },
+    {
+      "insertion_id": 4294967299,
+      "status_old": "OPEN",
+      "status": "SELECTED",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 16,
+        "seconds": 41
+      }
+    },
+    {
+      "insertion_id": 4294967299,
+      "status_old": "OPEN",
+      "status": "MATCHED",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 36,
+        "seconds": 16
+      }
+    },
+    {
+      "insertion_id": 4294967299,
+      "status_old": "OPEN",
+      "status": "SELECTED",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 36,
+        "seconds": 16
+      }
+    },
+    {
+      "insertion_id": 4294967299,
+      "status_old": "MATCHED",
+      "status": "TRADING",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 37,
+        "seconds": 1
+      }
+    },
+    {
+      "insertion_id": 4294967299,
+      "status_old": "SELECTED",
+      "status": "TRADING",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 37,
+        "seconds": 1
+      }
+    },
+    {
+      "insertion_id": 4294967299,
+      "status_old": "TRADING",
+      "status": "CLOSED",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 39,
+        "seconds": 52
+      }
+    },
+    {
+      "insertion_id": 4294967299,
+      "status_old": "TRADING",
+      "status": "CLOSED",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 39,
+        "seconds": 52
+      }
+    },
+    {
+      "insertion_id": 0,
+      "status": "OPEN",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 47,
+        "seconds": 51
+      }
+    },
+    {
+      "insertion_id": 0,
+      "status": "OPEN",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 48,
+        "seconds": 33
+      }
+    },
+    {
+      "insertion_id": 0,
+      "status": "OPEN",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 58,
+        "seconds": 6
+      }
+    },
+    {
+      "insertion_id": 0,
+      "status": "OPEN",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 58,
+        "seconds": 49
+      }
+    },
+    {
+      "insertion_id": 4294967297,
+      "status_old": "OPEN",
+      "status": "MATCHED",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 59,
+        "seconds": 49
+      }
+    },
+    {
+      "insertion_id": 4294967297,
+      "status_old": "OPEN",
+      "status": "SELECTED",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 11,
+        "minutes": 59,
+        "seconds": 49
+      }
+    },
+    {
+      "insertion_id": 4294967297,
+      "status_old": "MATCHED",
+      "status": "TRADING",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 12,
+        "minutes": 1,
+        "seconds": 45
+      }
+    },
+    {
+      "insertion_id": 4294967297,
+      "status_old": "SELECTED",
+      "status": "TRADING",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 12,
+        "minutes": 1,
+        "seconds": 45
+      }
+    },
+    {
+      "insertion_id": 4294967297,
+      "status_old": "TRADING",
+      "status": "CLOSED",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 12,
+        "minutes": 16,
+        "seconds": 25
+      }
+    },
+    {
+      "insertion_id": 4294967297,
+      "status_old": "TRADING",
+      "status": "CLOSED",
+      "when_date": {
+        "year": 2022,
+        "month": 3,
+        "day": 5
+      },
+      "when_time": {
+        "hours": 12,
+        "minutes": 16,
+        "seconds": 25
+      }
+    }
+  ]
+}

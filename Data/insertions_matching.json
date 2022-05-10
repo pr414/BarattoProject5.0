@@ -1,0 +1,20 @@
+{
+  "meeting": [
+    {
+      "location": "Casa di Paolino",
+      "date": {
+        "year": 2020,
+        "month": 2,
+        "day": 10
+      },
+      "time": {
+        "hours": 20,
+        "minutes": 34,
+        "seconds": 0
+      },
+      "from_insertion_id": "dc43a8d6-f218-4638-a64d-8cc9f7eb0023",
+      "to_insertion_id": "aa8230af-cb8f-4f24-841e-56e9ea653eb0",
+      "speaker": true
+    }
+  ]
+}
