@@ -12,7 +12,7 @@ import hierarchies.Hierarchy;
  * Classe per il caricamento/ salvataggio delle gerarchie.
  */
 public class HierarchiesDB extends DBBase<Hierarchies> {
-	private static String HIERARCHIES_JSON = "hierarchies.json";
+	public static String HIERARCHIES_JSON = "hierarchies.json";
 	static Path hierarchiesPath;
 	
 	public HierarchiesDB() {
@@ -40,7 +40,7 @@ public class HierarchiesDB extends DBBase<Hierarchies> {
 	 * il file .json delle gerarchie.
 	 * @return true successo operazione
 	 */
-	static boolean onNewDB() {
+	public static boolean onNewDB() {
 		Hierarchies h = new Hierarchies();
 		List<Hierarchy> list = new ArrayList<Hierarchy>();
 		h.setHierarchies(list);
