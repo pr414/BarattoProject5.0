@@ -73,7 +73,7 @@ public class NewHierarchyMenu extends MenuBase<Boolean> {
 		io.println("Inserimento giorni");
 		while(true) {
 			io.println("Inserisci il giorno:");
-			String dow = io.readString();
+			String dow = io.readString().toLowerCase();
 			if(!Hierarchy.is_day_of_week(dow))
 			{
 				io.println("Non hai inserito un valido giorno della settimana.");
