@@ -73,6 +73,7 @@ public class AuthMenu extends MenuBase<Boolean>{
 		case SUCCESS:
 			io.println("Login avvenuto con successo.");
 			io.println("Sessione avviata con successo (SID:"+Account.getCurrentSessionId()+")");
+			io.println("Ruolo d'accesso: "+this.user.getRole().getTitle());
 			return true;
 		case USER_NOT_FOUND:
 			io.println("Errore: l'utente da lei inserito non è stato trovato.");

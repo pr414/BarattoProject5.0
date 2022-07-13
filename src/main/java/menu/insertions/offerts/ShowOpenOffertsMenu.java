@@ -44,7 +44,7 @@ public class ShowOpenOffertsMenu extends MenuBase<Boolean> {
 					if(hierarchy.getChildrenSize(entry.getValue())==0) {//è foglia
 						StringBuilder sb = new StringBuilder();
 						sb.append(">").append(i)
-							.append(" per visualizzare le offerte aperte di ")
+							.append(" per visualizzare le offerte aperte, in scambio e chiuse di ")
 							.append(entry.getValue().getName());
 						io.println(sb.toString());
 						symb_hierarchyIndex.put(i, h);
@@ -87,9 +87,11 @@ public class ShowOpenOffertsMenu extends MenuBase<Boolean> {
 		InsertionsDB db = new InsertionsDB();
 		Insertions insertions = db.load();
 		HashMap<String,Insertion> map = insertions.getInsertions(OffertStatus.OPEN, selected);
+		map.putAll(insertions.getInsertions(OffertStatus.TRADING, selected));
+		map.putAll(insertions.getInsertions(OffertStatus.CLOSED, selected));
 		if(map.size()>0) {
 			io.println("-----------------------------------------------------");
-			io.println("Offerte aperte della categoria " + selected.getName());
+			io.println("Offerte aperte, in scambio e chiuse della categoria " + selected.getName());
 			io.println("-----------------------------------------------------");
 			for(Map.Entry<String, Insertion> entry : map.entrySet())
 				io.println(entry.getValue().toString());

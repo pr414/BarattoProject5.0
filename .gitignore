@@ -2,3 +2,6 @@
 Configuration/configuration.json
 Data/hierarchies.json
 Data/users.json
+Data/insertions.json
+Data/insertions_matching.json
+Data/status_history.json

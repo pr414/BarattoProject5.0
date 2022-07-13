@@ -1,3 +1,34 @@
 {
-  "insertions": {}
+  "insertions": {
+    "94d86753-b109-4c5e-9ca0-23d98815970f": {
+      "id": "94d86753-b109-4c5e-9ca0-23d98815970f",
+      "username": "pagafruit",
+      "category_id": 30064771074,
+      "evaluated_fields": [
+        {
+          "fieldName": "stato conservazione",
+          "value": "buono"
+        },
+        {
+          "fieldName": "descrizione libera"
+        }
+      ],
+      "status": "TRADING"
+    },
+    "94e85eee-260e-40b6-a8a7-a3870b929e9e": {
+      "id": "94e85eee-260e-40b6-a8a7-a3870b929e9e",
+      "username": "pollofruit",
+      "category_id": 30064771074,
+      "evaluated_fields": [
+        {
+          "fieldName": "stato conservazione",
+          "value": "media"
+        },
+        {
+          "fieldName": "descrizione libera"
+        }
+      ],
+      "status": "TRADING"
+    }
+  }
 }
