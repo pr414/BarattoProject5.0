@@ -1,13 +1,21 @@
 package menu.insertions.offerts;
 
 import java.io.IOException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Calendar;
 import java.util.List;
 
 import account.Account;
+import db.HierarchiesDB;
 import db.InsertionsDB;
 import db.InsertionsMatchingDB;
+import hierarchies.Category;
+import hierarchies.Hierarchies;
+import hierarchies.Hierarchy;
+import hierarchies.Interval;
+import insertions.Insertion;
 import insertions.Insertions;
 import insertions.offerts.InsertionsMatching;
 import insertions.offerts.Meeting;
@@ -30,21 +38,32 @@ public class OffertsManagementMenu extends MenuBase<Boolean> {
 	 */
 	private String meetingAndOptionsToString(Meeting meeting) {
 		StringBuilder sb = new StringBuilder();
-		OffertStatus from_s = meeting.getFrom_insertion().getStatus();
-		OffertStatus to_s = meeting.getTo_insertion().getStatus();
+		Insertion from_i = meeting.getFrom_insertion();
+		OffertStatus from_s = from_i.getStatus();
+		Insertion to_i = meeting.getTo_insertion();
+		OffertStatus to_s = to_i.getStatus();
 		if(from_s.equals(OffertStatus.TRADING) &&
 				to_s.equals(OffertStatus.TRADING)) {
 			 //-----------CASO 1---------------------
 			//può accettare o riproporre
 			//**************in base al valore di speaker*******************
-			sb.append("per accettare o per proporre un accordo diverso dal precedente:");
+			sb.append("Per accettare o per proporre un accordo diverso dal precedente:");
+			sb.append(System.lineSeparator());
+			sb.append("Categoria: ");
+			sb.append(from_i.getCategory_reference().getName());
+			sb.append(System.lineSeparator());
 			sb.append(meeting.toString());
 		} else if (from_s.equals(OffertStatus.MATCHED) &&
 				to_s.equals(OffertStatus.SELECTED)) {
 			 //-----------CASO 2---------------------
 			//può rispondere alla proposta per la prima volta
-			sb.append("per proporre un nuovo accordo da parte di ");
+			sb.append("Per proporre un nuovo accordo a ");
 			sb.append(meeting.getFrom_insertion().getUsername());
+			sb.append(System.lineSeparator());
+			sb.append("Categoria: ");
+			sb.append(from_i.getCategory_reference().getName());
+			sb.append(System.lineSeparator());
+			sb.append(meeting.toString());
 		}
 		sb.append(System.lineSeparator());
 		return sb.toString();
@@ -123,7 +142,32 @@ public class OffertsManagementMenu extends MenuBase<Boolean> {
 		db.save(insertions);
 		io.println("Accettato correttamente!");
 	}
-	
+
+	private DayOfWeek[] get_dow_from_list(List<String> giorni) {
+		DayOfWeek[] dow = new DayOfWeek[giorni.size()];
+		for(int i = 0; i < dow.length; i++)
+			dow[i] = get_dow_from_string(giorni.get(i));
+		return dow;
+	}
+	private DayOfWeek get_dow_from_string(String giorno) {
+		switch(giorno) {
+			case "lunedì":
+				return DayOfWeek.MONDAY;
+			case "martedì":
+				return DayOfWeek.TUESDAY;
+			case "mercoledì":
+				return DayOfWeek.WEDNESDAY;
+			case "giovedì":
+				return DayOfWeek.THURSDAY;
+			case "venerdì":
+				return DayOfWeek.FRIDAY;
+			case "sabato":
+				return DayOfWeek.SATURDAY;
+			case "domenica":
+				return DayOfWeek.SUNDAY;
+		}
+		return null;
+	}
 	
 	/**
 	 * Nuova offerta oppure riproposta
@@ -131,66 +175,194 @@ public class OffertsManagementMenu extends MenuBase<Boolean> {
 	 * @throws IOException 
 	 */
 	private void newMeetingOffer(Meeting meeting) throws IOException {
+		Category cat = meeting.getFrom_insertion().getCategory_reference();
+		HierarchiesDB hierarchiesdb = new HierarchiesDB();
+		Hierarchies hierarchies_cls = hierarchiesdb.load();
+		Hierarchy hierarchy = hierarchies_cls.getHierarchy(cat.getId());
 		io.println("Nuova proposta");
 		//private String location;
 		if(meeting.getLocation() != null) {
 			if(yes_no_request("Vuoi modificare il luogo?")) {
-				io.println("Inserisci luogo:");
-				String location = io.readString();
-				meeting.setLocation(location);
+				while(true) {
+					io.println("Inserisci un luogo tra i seguenti:");
+					StringBuilder sb_luogo = new StringBuilder();
+					List<String> luoghi = hierarchy.getLuoghi();
+					for(int i = 0; i < luoghi.size(); i++) {
+						sb_luogo.append(luoghi.get(i));
+						if(i+1 < luoghi.size())
+							sb_luogo.append(", ");
+					}
+					io.println(sb_luogo.toString());
+					String location = io.readString();
+					if(luoghi.contains(location)) {
+						meeting.setLocation(location);
+						break;
+					}else {
+						io.println("Hai inserito un luogo non valido.");
+					}
+				}
 			}
 		}else {
-			io.println("Inserisci luogo:");
-			String location = io.readString();
-			meeting.setLocation(location);
+			while(true) {
+				io.println("Inserisci un luogo tra i seguenti:");
+				StringBuilder sb_luogo = new StringBuilder();
+				List<String> luoghi = hierarchy.getLuoghi();
+				for(int i = 0; i < luoghi.size(); i++) {
+					sb_luogo.append(luoghi.get(i));
+					if(i+1 < luoghi.size())
+						sb_luogo.append(", ");
+				}
+				io.println(sb_luogo.toString());
+				String location = io.readString();
+				if(luoghi.contains(location)) {
+					meeting.setLocation(location);
+					break;
+				}else {
+					io.println("Hai inserito un luogo non valido.");
+				}
+			}
 		}
 		//private LocalDate date;
 		while(true) {
-			if(meeting.getLocation() != null) {
+			if(meeting.getDate() != null) {
 				if(yes_no_request("Vuoi modificare la data?")) {
-					io.println("Inserisci la data:("+APNUtils.DATE_FORMAT+")");
+					List<String> giorni = hierarchy.getGiorni();
+					DayOfWeek[] possible_days = get_dow_from_list(giorni);
+					while(true) {
+						io.println("Inserisci la data ("+APNUtils.DATE_FORMAT+")");
+						io.println("Deve corrispondere a uno dei seguenti giorni:");
+						StringBuilder sb_days = new StringBuilder();
+						for(int i = 0; i < giorni.size(); i++) {
+							sb_days.append(giorni.get(i));
+							if(i+1<giorni.size())
+								sb_days.append(", ");
+						}
+						io.println(sb_days.toString());
+						String date = io.readString();
+						LocalDate ldate = APNUtils.getDateFromString(date);
+						if(ldate==null) {
+							io.println("Non hai rispettato i vincoli "+ APNUtils.DATE_FORMAT);
+							continue;
+						}
+						boolean correct = false;
+						for(int i = 0; i < giorni.size(); i++) {
+							if(possible_days[i] == ldate.getDayOfWeek()) {
+								meeting.setDate(ldate);
+								correct = true;
+								break;
+							}
+						}
+						if(correct)
+							break;
+						io.println("Non hai inserito una data corretta.");
+					}
+				}
+			}else {
+				List<String> giorni = hierarchy.getGiorni();
+				DayOfWeek[] possible_days = get_dow_from_list(giorni);
+				while(true) {
+					io.println("Inserisci la data ("+APNUtils.DATE_FORMAT+")");
+					io.println("Deve corrispondere a uno dei seguenti giorni:");
+					StringBuilder sb_days = new StringBuilder();
+					for(int i = 0; i < giorni.size(); i++) {
+						sb_days.append(giorni.get(i));
+						if(i+1<giorni.size())
+							sb_days.append(", ");
+					}
+					io.println(sb_days.toString());
 					String date = io.readString();
 					LocalDate ldate = APNUtils.getDateFromString(date);
 					if(ldate==null) {
 						io.println("Non hai rispettato i vincoli "+ APNUtils.DATE_FORMAT);
 						continue;
 					}
-					meeting.setDate(ldate);
+					boolean correct = false;
+					for(int i = 0; i < giorni.size(); i++) {
+						if(possible_days[i] == ldate.getDayOfWeek()) {
+							meeting.setDate(ldate);
+							correct = true;
+							break;
+						}
+					}
+					if(correct)
+						break;
+					io.println("Non hai inserito una data corretta.");
 				}
-			}else {
-				io.println("Inserisci la data:("+APNUtils.DATE_FORMAT+")");
-				String date = io.readString();
-				LocalDate ldate = APNUtils.getDateFromString(date);
-				if(ldate==null) {
-					io.println("Non hai rispettato i vincoli "+ APNUtils.DATE_FORMAT);
-					continue;
-				}
-				meeting.setDate(ldate);
 			}
 			break;
 		}
 		//ora
 		while(true) {
-			if(meeting.getLocation() != null) {
+			if(meeting.getTime() != null) {
 				if(yes_no_request("Vuoi modificare l'ora?")) {
-					io.println("Inserisci l'ora:("+APNUtils.TIME_FORMAT+")");
+					while(true) {
+						io.println("Inserisci l'ora ("+APNUtils.TIME_FORMAT+") interna alle seguenti fasce:");
+						StringBuilder sb_time = new StringBuilder();
+						List<Interval> intervalli = hierarchy.getIntervalli();
+						for(int i = 0; i < intervalli.size(); i++) {
+							Interval interval = intervalli.get(i);
+							sb_time.append("[");
+							sb_time.append(interval.toString());
+							sb_time.append("]");
+							if(i+1<intervalli.size())
+								sb_time.append(", ");
+						}
+						io.println(sb_time.toString());
+						String time = io.readString();
+						LocalTime ltime = APNUtils.getTimeFromString(time);
+						if(ltime==null) {
+							io.println("Non hai rispettato i vincoli "+ APNUtils.TIME_FORMAT);
+							continue;
+						}
+						boolean ok = false;
+						//Controllo validità
+						for(Interval intervallo : intervalli) {
+							if(ltime.isAfter(intervallo.getStartAt()) &&
+								ltime.isBefore(intervallo.getEndAt())) {
+								meeting.setTime(ltime);
+								ok = true;
+								break;
+							}
+						}
+						if(ok)
+							break;
+						io.println("Hai inserito un orario non permesso.");
+					}
+				}
+			}else {
+				while(true) {
+					io.println("Inserisci l'ora ("+APNUtils.TIME_FORMAT+") interna alle seguenti fasce:");
+					StringBuilder sb_time = new StringBuilder();
+					List<Interval> intervalli = hierarchy.getIntervalli();
+					for(int i = 0; i < intervalli.size(); i++) {
+						Interval interval = intervalli.get(i);
+						sb_time.append("[");
+						sb_time.append(interval.toString());
+						sb_time.append("]");
+						if(i+1<intervalli.size())
+							sb_time.append(", ");
+					}
+					io.println(sb_time.toString());
 					String time = io.readString();
 					LocalTime ltime = APNUtils.getTimeFromString(time);
 					if(ltime==null) {
 						io.println("Non hai rispettato i vincoli "+ APNUtils.TIME_FORMAT);
 						continue;
 					}
-					meeting.setTime(ltime);
+					boolean ok = false;
+					//Controllo validità
+					for(Interval intervallo : intervalli) {
+						if(ltime.isAfter(intervallo.getStartAt()) &&
+							ltime.isBefore(intervallo.getEndAt())) {
+							meeting.setTime(ltime);
+							ok = true;
+							break;
+						}
+					}
+					if(ok)
+						break;
+					io.println("Hai inserito un orario non permesso.");
 				}
-			}else {
-				io.println("Inserisci l'ora:("+APNUtils.TIME_FORMAT+")");
-				String time = io.readString();
-				LocalTime ltime = APNUtils.getTimeFromString(time);
-				if(ltime==null) {
-					io.println("Non hai rispettato i vincoli "+APNUtils.TIME_FORMAT);
-					continue;
-				}
-				meeting.setTime(ltime);
 			}
 			break;
 		}

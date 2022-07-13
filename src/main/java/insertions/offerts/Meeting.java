@@ -94,15 +94,15 @@ public class Meeting {
 	
 	@Override
 	public String toString() {
-		return new StringBuilder()
-				.append("Location: ")
-				.append(this.getLocation())
-				.append(System.lineSeparator())
-				.append("Date: ")
-				.append(this.getDate())
-				.append(System.lineSeparator())
-				.append("Time: ")
-				.append(this.getTime())
-				.toString();
+		StringBuilder sb = new StringBuilder();
+		sb.append("Location: ")
+				.append((this.getLocation()==null)?"Nessun valore.":this.getLocation())
+				.append(System.lineSeparator());
+		sb.append("Date: ")
+				.append((this.getDate()==null)?"Nessun valore.":this.getDate())
+				.append(System.lineSeparator());
+		sb.append("Time: ")
+				.append((this.getTime()==null)?"Nessun valore.":this.getTime());
+		return sb.toString();
 	}
 }

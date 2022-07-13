@@ -5,6 +5,28 @@
       "from_insertion_id": "94e85eee-260e-40b6-a8a7-a3870b929e9e",
       "to_insertion_id": "94d86753-b109-4c5e-9ca0-23d98815970f",
       "speaker": false
+    },
+    {
+      "location": "Manerbio",
+      "from_insertion_id": "cd7e341f-53ba-4371-8bcc-0401d2c720ad",
+      "to_insertion_id": "98489c41-43c6-4f0f-aa0f-f19a93c3d864",
+      "speaker": false
+    },
+    {
+      "location": "l1",
+      "date": {
+        "year": 2022,
+        "month": 7,
+        "day": 18
+      },
+      "time": {
+        "hours": 17,
+        "minutes": 40,
+        "seconds": 0
+      },
+      "from_insertion_id": "2670225a-bf3c-47a5-b5bc-adfd5e05c8e6",
+      "to_insertion_id": "e42a5b02-c3d0-44f8-be0f-3f456394687b",
+      "speaker": false
     }
   ]
 }

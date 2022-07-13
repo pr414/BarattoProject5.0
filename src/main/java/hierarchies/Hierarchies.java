@@ -23,6 +23,13 @@ public class Hierarchies{
 		return null;
 	}
 
+	public Hierarchy getHierarchy(long category_id) {
+		for(Hierarchy h : hierarchies)
+			if(IdManager.isMineCompetence(h.getId(), category_id))
+				return h;
+		return null;
+	}
+	
 	public List<Hierarchy> getHierarchies() {
 		return hierarchies;
 	}

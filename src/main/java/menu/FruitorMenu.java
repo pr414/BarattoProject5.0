@@ -24,7 +24,7 @@ public class FruitorMenu extends MenuBase<Boolean> {
 			io.println("Premi:");
 			io.println("1 -> per visualizzare le gerarchie");
 			io.println("2 -> per pubblicare un nuovo articolo");
-			io.println("3 -> per ritirare l'offerta un articolo");
+			io.println("3 -> per ritirare l'offerta di un articolo");
 			io.println("4 -> per entrare nel menù delle offerte");
 			io.println("logout -> per effettuare il logout");
 			io.println("quit -> per uscire");
