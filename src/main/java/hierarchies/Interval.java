@@ -58,10 +58,10 @@ public class Interval {
 	 * PRECONDIZIONI:
 	 * endAt > startAt
 	 */
-	public boolean setEndAt(LocalTime endAt) {
-		if(!is_possible(endAt) && endAt.isAfter(this.startAt))
+	public boolean setEndAt(LocalTime end) {
+		if(!is_possible(end) || startAt.isAfter(end))
 			return false;
-		this.endAt = endAt;
+		this.endAt = end;
 		return true;
 	}
 	//---------------------------------------------

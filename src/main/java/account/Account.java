@@ -28,7 +28,7 @@ public class Account {
 	}
 	
 	/**
-	 * Se la sessione corrente è != null allora un utente è "loggato".
+	 * Se la sessione corrente ï¿½ != null allora un utente ï¿½ "loggato".
 	 * @return true se current user is logged in.
 	 */
 	public static boolean is_logged_in() {
@@ -60,7 +60,7 @@ public class Account {
 	 * @param user
 	 * @return messaggio di login
 	 */
-	static LoginMessages login(User user) {
+	public static LoginMessages login(User user) {
 		try {
 			Users users = new UsersDB().load();
 			for(User temp : users.getUsers()) {

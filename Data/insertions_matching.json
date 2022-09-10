@@ -1,32 +1,44 @@
 {
   "meeting": [
     {
-      "location": "Monandia",
-      "from_insertion_id": "94e85eee-260e-40b6-a8a7-a3870b929e9e",
-      "to_insertion_id": "94d86753-b109-4c5e-9ca0-23d98815970f",
-      "speaker": false
+      "from_insertion_id": "7427c0fc-4ed9-440d-8699-6428572e21b7",
+      "to_insertion_id": "d5744e04-c507-4381-b312-e7fcfc84b98b",
+      "speaker": true
     },
     {
-      "location": "Manerbio",
-      "from_insertion_id": "cd7e341f-53ba-4371-8bcc-0401d2c720ad",
-      "to_insertion_id": "98489c41-43c6-4f0f-aa0f-f19a93c3d864",
-      "speaker": false
+      "from_insertion_id": "b39a498f-5f04-4ae3-b968-5a2a8f5dfc0b",
+      "to_insertion_id": "5c83303a-a7ce-4c11-a3bc-7f219d504732",
+      "speaker": true
     },
     {
-      "location": "l1",
-      "date": {
-        "year": 2022,
-        "month": 7,
-        "day": 18
-      },
-      "time": {
-        "hours": 17,
-        "minutes": 40,
-        "seconds": 0
-      },
-      "from_insertion_id": "2670225a-bf3c-47a5-b5bc-adfd5e05c8e6",
-      "to_insertion_id": "e42a5b02-c3d0-44f8-be0f-3f456394687b",
-      "speaker": false
+      "from_insertion_id": "ff6b8394-d7f5-4e28-99c9-7527bd5e71e6",
+      "to_insertion_id": "51327dcc-548e-4ff1-8515-56d197fdccfa",
+      "speaker": true
+    },
+    {
+      "from_insertion_id": "715bee39-7839-4348-827f-268bd080540a",
+      "to_insertion_id": "1cd06bfa-127e-472f-a62d-fc820f33a722",
+      "speaker": true
+    },
+    {
+      "from_insertion_id": "c1958575-86b8-4088-af03-acb18a21a554",
+      "to_insertion_id": "3fef50d6-1336-42a3-b622-1bf2b19059f0",
+      "speaker": true
+    },
+    {
+      "from_insertion_id": "44b06194-c82a-47b2-8328-3ff98d1311e9",
+      "to_insertion_id": "39b11d87-0ab1-41e4-a932-6748fe0fe5b6",
+      "speaker": true
+    },
+    {
+      "from_insertion_id": "7cf75778-79ee-4010-bd03-ec12c1127d4a",
+      "to_insertion_id": "e4574d9f-8a5f-4678-a614-778f78fedd9f",
+      "speaker": true
+    },
+    {
+      "from_insertion_id": "cc18a789-5d54-450f-9e75-a9e0975e4981",
+      "to_insertion_id": "f849f7c0-4fe3-4eef-b889-68931c708e56",
+      "speaker": true
     }
   ]
 }
