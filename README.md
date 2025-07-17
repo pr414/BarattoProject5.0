@@ -33,4 +33,3 @@ Il client è pensato per essere eseguito e salvare dati in locale.
 Una volta scelte le credenziali compatibilmente con i parametri di lunghezza, viene avviata la sessione ed è possibile interagire con il sistema in base al tipo di login effettuato.
 
 Il funzionamento nel dettaglio è disponibile sotto "Manuale d'Installazione ed Uso - BarattoProject".
-Project related to the Course "Ingegneria del Software" held at Università degli Studi di Brescia.
