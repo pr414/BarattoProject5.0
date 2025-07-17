@@ -1,8 +1,9 @@
-# Introduzione al Programma
+## BarattoProject - Piattaforma di scambio oggetti
+### Introduzione al Programma
 BarattoProject è un software di supporto al baratto di articoli fisici, a loro volta riconducibili ad un insieme prefissato di categorie. L’applicazione può essere adottata da varie organizzazioni, che sovrintendono al baratto di categorie diverse di articoli e/o operano su piazze diverse.
 Il software permette all’utente finale di interagire con inserzioni esistenti di prodotti, proponendo scambi, o di inserire le proprie inserzioni di prodotto che intende barattare, previa descrizione degli stessi.
 
-# Eseguibile
+### Eseguibile
 Una volta ottenuto il file compresso contenente il software (.zip o .rar) estrarre il contenuto in una cartella all’interno del disco.
 Se in possesso di file .jar, eseguirlo tramite la JVM associata alla versione di Java posseduta.
 (Su Windows) Se in possesso di file .exe, è sufficiente eseguirlo tramite il sistema operativo.
@@ -10,7 +11,7 @@ Si raccomanda la creazione di una cartella apposita sul disco di installazione p
 In caso di codice sorgente (.java), è sufficiente generare il bytecode (.class) dalla riga di comando tramite il comando javac [nomefile.java].
 Ottenuto così il file nomefile.class, eseguirlo nell’ambiente JRE tramite il comando java [nomefile.class].
 
-# Generalità di Funzionamento
+### Generalità di Funzionamento
 L’applicazione supporta lo scambio di articoli fisici le cui categorie vengono stabilite dal configuratore.
 Ogni singola categoria è dotata di un nome e di una descrizione, entrambe stringhe in linguaggio naturale volte a esplicare il significato della categoria stessa.
 Una categoria può articolarsi in due o più (sotto)categorie, a loro volta suddividibili ricorsivamente, e così via, secondo una gerarchia ad albero.
@@ -26,7 +27,7 @@ Le offerte possono essere in stato OPEN, TRADING, CLOSED.
 Le offerte con rispettivo stato sono visualizzabili sia dal configuratore che dal fruitore, ma solo quest’ultimo può effettuare la creazione di esse ed accordarsi per gli scambi (cambiandone lo stato).
 Le specifiche competenze di configuratore e fruitore sono specificate nelle specifiche sezioni di accesso.
 
-# Setup
+### Setup
 Al primo avvio dell’applicazione, viene proposta la schermata di login.
 L’utente ha la possibilità di accedere con le credenziali temporanee o del configuratore o del fruitore, al seguito di cui viene richiesta la registrazione del ruolo richiesto con username e password, che individueranno univocamente l’utente.
 Il client è pensato per essere eseguito e salvare dati in locale.
