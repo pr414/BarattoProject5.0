@@ -1,7 +1,6 @@
 # Introduzione al Programma
 BarattoProject è un software di supporto al baratto di articoli fisici, a loro volta riconducibili ad un insieme prefissato di categorie. L’applicazione può essere adottata da varie organizzazioni, che sovrintendono al baratto di categorie diverse di articoli e/o operano su piazze diverse.
 Il software permette all’utente finale di interagire con inserzioni esistenti di prodotti, proponendo scambi, o di inserire le proprie inserzioni di prodotto che intende barattare, previa descrizione degli stessi.
-La versione attuale salva ed aggiorna lo stato del programma in locale sul dispositivo finale.
 
 # Eseguibile
 Una volta ottenuto il file compresso contenente il software (.zip o .rar) estrarre il contenuto in una cartella all’interno del disco.
@@ -30,6 +29,7 @@ Le specifiche competenze di configuratore e fruitore sono specificate nelle spec
 # Setup
 Al primo avvio dell’applicazione, viene proposta la schermata di login.
 L’utente ha la possibilità di accedere con le credenziali temporanee o del configuratore o del fruitore, al seguito di cui viene richiesta la registrazione del ruolo richiesto con username e password, che individueranno univocamente l’utente.
+Il client è pensato per essere eseguito e salvare dati in locale.
 Una volta scelte le credenziali compatibilmente con i parametri di lunghezza, viene avviata la sessione ed è possibile interagire con il sistema in base al tipo di login effettuato.
 
 Il funzionamento nel dettaglio è disponibile sotto "Manuale d'Installazione ed Uso - BarattoProject".
